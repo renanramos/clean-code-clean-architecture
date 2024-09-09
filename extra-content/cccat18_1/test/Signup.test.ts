@@ -45,7 +45,8 @@ test("Não deve validar quando um novo motorista já existe", async function () 
     // Then
     expect(response.body['accountId']).not.toEqual(null);
     expect(response.status).toBe(422);
-    expect(response.body['message']).toBe(-4);
+    expect(response.body['message']).toBe("User already exists");
+    expect(response.body['result']).toBe(-4);
 });
 
 test("Deve validar quando um novo passageiro é incluído", async function () {
@@ -92,7 +93,8 @@ test("Não deve validar quando um novo passageiro com nome inválido", async fun
     // Then
     expect(response.body['message']).not.toEqual(null);
     expect(response.status).toBe(422);
-    expect(response.body['message']).toBe(-3);
+    expect(response.body['message']).toBe("Invalid user name");
+    expect(response.body['result']).toBe(-3);
 });
 
 test("Não deve validar quando um novo passageiro com email inválido", async function () {
@@ -116,7 +118,8 @@ test("Não deve validar quando um novo passageiro com email inválido", async fu
     // Then
     expect(response.body['message']).not.toEqual(null);
     expect(response.status).toBe(422);
-    expect(response.body['message']).toBe(-2);
+    expect(response.body['message']).toBe("Invalid user email");
+    expect(response.body['result']).toBe(-2);
 });
 
 test("Não deve validar quando um novo passageiro com cpf inválido", async function () {
@@ -140,7 +143,8 @@ test("Não deve validar quando um novo passageiro com cpf inválido", async func
     // Then
     expect(response.body['message']).not.toEqual(null);
     expect(response.status).toBe(422);
-    expect(response.body['message']).toBe(-1);
+    expect(response.body['message']).toBe("Invalid user CPF");
+    expect(response.body['result']).toBe(-1);
 });
 
 test("Não deve validar quando um novo motorista com placa do veículo inválido", async function () {
@@ -164,5 +168,6 @@ test("Não deve validar quando um novo motorista com placa do veículo inválido
     // Then
     expect(response.body['message']).not.toEqual(null);
     expect(response.status).toBe(422);
-    expect(response.body['message']).toBe(-5);
+    expect(response.body['message']).toBe("Invalid driver carPlate");
+    expect(response.body['result']).toBe(-5);
 });
