@@ -1,5 +1,5 @@
 import ValidationError from "./ValidationError";
-import { validateCpf } from "./../../validateCpf";
+import { validateCpf } from "../../validateCpf";
 
 export default class User {
     
